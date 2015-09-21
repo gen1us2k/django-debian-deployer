@@ -107,6 +107,10 @@ EOF
 wget -O /home/devteam/install_project.sh https://raw.githubusercontent.com/gen1us2k/django-debian-deployer/master/install_project.sh
 
 chown devteam /home/devteam/install_project.sh
-
+echo "Don't forget to create db."
+echo "Trying"
+mysql -uroot -proot -e "create database ${projectname} default character set utf8 collate utf8_general_ci"
+[ $? -ne 0 ] && echo "Failed to create db. Don't forget to create!!" && echo "RUN: mysql -uroot -ppassword -e 'create database ${projectname} default character set utf8 collate utf8_general_ci'"
 echo "RUN bash install_project.sh project_name project_url dest_dir"
+
 su - devteam
