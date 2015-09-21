@@ -2,10 +2,10 @@
 projectname=$1
 projecturl=$2
 dest_dir=$3
-[ $projectname == ""] && echo "Specify project name. ./prereqs.sh project_name" && exit 1
-[ $projecturl == ""] && echo "Specify project url. ./prereqs.sh project_name project_url" && exit 1
-[ $dest_dir == ""] && echo "Specify destination dir. ./prereqs.sh project_name project_url dest_dir" && exit 1
-echo $projectname
+
+[ $projectname == "" ] && echo "Specify project name. ./prereqs.sh project_name" && exit 1
+[ $projecturl == "" ] && echo "Specify project url. ./prereqs.sh project_name project_url" && exit 1
+[ $dest_dir == "" ] && echo "Specify destination dir. ./prereqs.sh project_name project_url dest_dir" && exit 1
 
 echo "Configuring percona repo"
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
@@ -108,5 +108,5 @@ wget -O /home/devteam/install_project.sh https://raw.githubusercontent.com/gen1u
 
 chown devteam /home/devteam/install_project.sh
 
-echo "RUN bash install_project.sh"
+echo "RUN bash install_project.sh project_name project_url dest_dir"
 su - devteam

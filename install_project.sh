@@ -17,3 +17,12 @@ pip install -r requirements.txt
 export DJANGO_SETTINGS_MODULE=${projectname}.settings.production
 ./manage.py collectstatic --noinput
 ./manage.py migrate
+
+echo "Finish installation by running"
+echo "service nginx restart"
+echo "service supervisor restart"
+echo ""
+echo "Cross fingers and open site on url"
+echo "Check whether is works..."
+echo "GLHF"
+exit
