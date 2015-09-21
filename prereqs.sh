@@ -103,3 +103,10 @@ stopwaitsecs = 60
 stopsignal=INT
 
 EOF
+
+wget -O /home/devteam/install_project.sh https://raw.githubusercontent.com/gen1us2k/django-debian-deployer/master/install_project.sh
+
+chown devteam /home/devteam/install_project.sh
+
+echo "RUN bash install_project.sh"
+su - devteam
