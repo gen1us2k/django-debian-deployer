@@ -28,15 +28,6 @@ echo "Creating devteam user"
 useradd -m -d /home/devteam -s /bin/bash devteam
 echo ". /usr/local/bin/virtualenvwrapper.sh" >> /home/devteam/.profile
 chown devteam:devteam /home/devteam/.profile
-cd /home/devteam
-
-echo "Cloning project"
-sudo -u devteam git clone $projecturl $dest_dir
-
-echo "Creating virtualenv"
-sudo -u devteam mkvirtualenv $projectname
-chown -R devteam /home/devteam/
-cd /home/devteam/$dest_dir
 
 echo "Configuring nginx"
 echo > /etc/nginx/sites-enabled/default
